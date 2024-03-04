@@ -24,19 +24,33 @@ This framework is intended for users of the Keepa API.
 Requirements
 ==============================
 
-All needed requirements (php version/external libraries) you find in can find in [composer.json](https://github.com/keepacom/php_api/blob/master/composer.json) or on [packagist](https://packagist.org/packages/keepa/php_api)
+All needed requirements (php version/external libraries) you find in can find
+in [composer.json](https://github.com/keepacom/php_api/blob/master/composer.json) or
+on [packagist](https://packagist.org/packages/keepa/php_api)
 
 
+
+
+
+<a name="features"></a>Differences from the original package repo
+--------
+
+This package is forked from https://github.com/keepacom/php_api. 
+
+Changes made to this package are:
+- Added `lowestRank` and `websiteDisplayGroup` properties to the Category object
 
 
 
 <a name="features"></a>Features
 --------
+
 * Parses API response to easy to use PHP objects
 * Provides methods that facilitate the work with price history data
 
 Composer
 -----
+
 ```bash
 composer require keepa/php_api:*
 ```
