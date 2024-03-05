@@ -19,11 +19,15 @@ class KeepaAPI
     private $httpClient = null;
     private static $VERSION = "2.0.3";
 
+    private $printResponse;
+
     public function __construct($accessKey)
     {
         $this->accessKey = $accessKey;
         $this->userAgent = "KEEPA-PHP Framework-" . self::$VERSION . " | " . phpversion();
         $this->serializer = new JsonMapper();
+
+        $this->printResponse = !!getenv("KEEPA_PRINT_RESPONSES");
 
         if (PHP_INT_SIZE != 8)
             throw new \Exception("This Framework works only on x64 Platforms/PHP!");
@@ -64,6 +68,9 @@ class KeepaAPI
 
         // $output contains the output string
         $output = $client->getBody();
+        if ($this->printResponse) {
+            echo $output . PHP_EOL;
+        }
 
         $responseCode = $client->getResponseCode();
         if ($responseCode == 200) {
